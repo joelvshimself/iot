@@ -1,0 +1,325 @@
+body {
+    font-family: Arial;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 10px;
+}
+
+.logo{
+    position: absolute;
+    top: -13px;
+    left: -10px;
+    width: 130px;
+    position: cover;
+    border-radius: 20px;}
+
+.title{
+    font-family: 'Signika', sans-serif;
+    position: absolute;
+    font-size: 45px;
+    top: -10px;
+    left: 110px;}
+
+    
+
+.inicial-bar{
+    background-color: #1c1c1c;
+    color: #ffffff;
+    font-family: 'Signika', sans-serif;
+    font-size: 25px;
+    text-align: right;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    position: fixed;
+    z-index: 100000;
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px;}
+
+.inicial-bar.salud{
+    background-color: #710000;
+    color: #ffffff;
+    font-family: 'Signika', sans-serif;
+    font-size: 25px;
+    text-align: right;
+    z-index: 100000;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    position: fixed;
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px;}
+
+
+.ficha{
+    display: grid;
+    grid-template-rows: 120px ;
+    height: 200px;
+    margin-top: 95px;}
+
+.medium{
+    background-color: #1c1c1c;
+    font-family: 'Signika', sans-serif;
+    font-size: 25px;
+    text-align: center left;
+    margin: 0px;
+    height: 52.5px;
+    position: inline block;
+    padding-top: 32.5px;
+    padding-bottom: 0px;
+    z-index: 2;
+    border-bottom-color: #fd5050;
+    border-top-color: #fd5050;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-bottom-width: 2px;
+    border-top-width: 2px;
+}
+.medium.final{
+    z-index: 3;
+    height: 60px;
+    border-width: 0px;
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px;}
+.medium.largo.inicial{
+    z-index: 3;
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px;}
+.medium.largo{
+    background-color: #1c1c1c;
+    z-index: 3;
+    border-top-width: 0px;
+    font-family: 'Signika', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    height: 90px;
+    position: inline block;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    border-bottom-color: #fd5050;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+}
+.medium.invisible{
+    background-color: #000;
+    border-width:0px;
+
+}
+
+
+  
+.container {
+    display: grid;
+    grid-template-columns: 170px 170px;
+    height: 200px;
+    margin-top: 95px;}
+.container.generic {
+    margin-top: 10px;}
+.small {
+    background-color: rgb(36, 36, 36);
+    border-radius: 10px;
+    margin-right: 5px;
+    border: 3px;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: .6px;
+    padding-top: 0px;}
+.small:hover {
+    background-color: rgb(63, 63, 63);
+    border-radius: 10px;
+    margin-right: 5px;
+    border: 3px;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    padding-top: 0px;}
+
+a{
+    text-decoration: none;}
+
+
+
+.atras-container{
+    background-color: #1c1c1c;
+    color: #ffffff;
+    font-family: 'Signika', sans-serif;
+    text-align: right;
+    position: fixed;
+    bottom: 45px;
+    left: 0;
+    right: 0;
+    height: 110px;
+    z-index: 100000;
+    border-top-left-radius: 40px; 
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px; 
+    border-bottom-right-radius: 40px;}
+
+.atras-container.s{
+    bottom: 0px;
+    height: 140px;}
+
+
+.atras-container:hover{
+    background-color: #888888;
+    color: #ffffff;
+    font-family: 'Signika', sans-serif;
+    text-align: right;
+    position: fixed;
+    bottom: 45px;
+    left: 0;
+    right: 0;
+    z-index: 100000;
+    height: 110px;
+    border-top-left-radius: 40px; 
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px; 
+    border-bottom-right-radius: 40px;}
+.labels{
+    display: inline;
+    font-family: 'Signika', sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+    margin-top: -140px;
+    margin-left: 37px;}
+.labels.oximetria{
+    margin-top: 30px;
+    margin-left: 22px;}
+.labels.historial{
+    margin-top: 0px;
+    margin-left: 26px;}
+.labels.bpm{
+    margin-top: 0px;
+    margin-left: 55px;}
+.labels.Clima{
+    margin-left: 46px;}
+.labels.UV{
+    margin-top: -20px;
+    margin-bottom: -40px;
+    margin-left: 62px;}
+.labels.Temperatura{
+    font-size: 28px;
+    margin-top: -50px;
+    margin-left: 8px;}
+.labels.ubi{
+    font-size: 30px;
+    margin-left: 20px;}
+.labels.salud{
+    margin-left: 42px;}
+.labels.creditos{
+    margin-left: 29px;}
+.labels.ajustes{
+    margin-left: 36px;}
+.labels.format{
+    color: #fd5050;
+    margin-top: 0px;
+    margin-left: 20px;
+    font-size: 25px;
+    margin-bottom: 0px ;}
+.labels.values{
+    margin-top: 0px;
+    margin-left: 0px;
+    font-size: 25px;
+    margin-bottom: 0px ;}
+.labels.values.bajo{
+    display: block;
+    margin-top: 0px;
+    margin-left: 0px;
+    font-size: 32px;
+    margin-bottom: 0px ;}
+
+.labels.actual{
+    margin-top: 28px;
+    margin-left: 43px;}
+
+
+
+.textatras{
+font-size: 45px;
+font-family: 'Signika', sans-serif;
+position: absolute;
+right: 140px;
+top: -20px;}
+    
+.icon{
+    width: 200px;
+    margin-left: -15px;
+    margin-top: -40px;
+    margin-bottom: -40px;}
+.icon.oximetria{
+    width: 250px;
+    margin-left: -42px;
+    margin-top: -40px;
+    margin-bottom: -53px;}
+.icon.historial{
+    width: 250px;
+    margin-left: -42px;
+    margin-top: -40px;
+    margin-bottom: -60px;}
+.icon.latidos{
+    width: 220px;
+    margin-left: -27px;
+    margin-top: -26px;
+    margin-bottom: -37px;}
+.icon.bpm{
+    width: 220px;
+    margin-left: -27px;
+    margin-top: -26px;
+    margin-bottom: -37px;}
+.icon.uv{
+    width: 220px;
+    margin-left: -28px;
+    margin-top: -25px;
+    margin-bottom: -35px;}
+.icon.Temperatura{
+    width: 230px;
+    margin-left: -33px;
+    margin-top: -25px;
+    margin-bottom: -43px;}
+.icon.ubi{
+    width: 210px;
+    margin-left: -20px;
+    margin-top: -20px;
+    margin-bottom: -36px;}
+.icon.salud{
+    margin-left: -18px;
+    margin-top: -20px;
+    margin-bottom: -25px;}
+.icon.creditos{
+    margin-left: -18px;
+    margin-top: -20px;
+    margin-bottom: -20px;}
+.icon.ajustes{
+    margin-left: -18px;
+    margin-top: -20px;
+    margin-bottom: -25px;}
+
+.icon.pulmones{
+    margin-left: -18px;
+    margin-top: -20px;
+    margin-bottom: -31px;}
+.icon.insta.joel{
+    object-fit: cover; 
+    object-position: 100% 0;
+    width: 150px;
+    height: 150px;
+    margin-left: 7.5px;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 0px;}
+
+
+
+
+.app2 {
+    background-color: rgb(36, 36, 36);
+    border-radius: 10px;
+    margin-left: 5px;
+    border: 3px;
+    border-color: #ffffff;
+    border-style:  solid;
+    border-width: .6px;
+}
+

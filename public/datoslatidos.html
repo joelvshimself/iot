@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Signika:wght@400;700&display=swap" rel="stylesheet">
+    <title>WiseWatch</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <a href="/">
+        <div class="inicial-bar">
+            <h1 class="title">Wise Watch</h1>
+            <img src="/images/simple.png" alt="logo" class="logo">
+        </div>
+    </a>
+    
+    <div class="container">
+        <div class="small">
+            <img src="/images/latidos.png" class="icon latidos">
+            <p class="labels">Último dato: </p>
+        </div>
+    </div>
+
+    <script>
+        // Función para obtener datos de temperatura
+        function fetchData(serverIP) {
+            fetch(`http://${serverIP}:5050/ultima-temperatura`)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('.labels').innerText = `Último dato: ${data.valor}`;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Solicitar la IP del servidor
+        fetch('/get-ip')
+            .then(response => response.json())
+            .then(data => {
+                const serverIP = data.ip;
+                fetchData(serverIP);
+                setInterval(() => fetchData(serverIP), 1000); // Actualizar cada 1 segundo
+            })
+            .catch(error => console.error('Error al obtener la IP del servidor:', error));
+    </script>
+    
+</body>
+
+</html>
