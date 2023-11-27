@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <a href="/latidos.html">
+    <a href="/oximetria.html">
         <div class="atras-container">
             <p class="textatras">Atras</p>
             <img src="/images/back.png" alt="logo" class="logo">
@@ -36,7 +36,7 @@
     <script>
         // Función para obtener datos de temperatura
         function fetchData(serverIP) {
-            fetch(`http://${serverIP}:5050/ultimo-pulso`)
+            fetch(`http://${serverIP}:5050/ultima-oximetria`)
                 .then(response => response.json())
                 .then(data => {
                     document.querySelector('.labels').innerText = `Último dato: ${data.valor}`;

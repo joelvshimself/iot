@@ -25,8 +25,9 @@
             <p class="labels">Último dato: </p>
         </div>
     </div>
+   
 
-    <a href="/latidos.html">
+    <a href="/temperatura.html">
         <div class="atras-container">
             <p class="textatras">Atras</p>
             <img src="/images/back.png" alt="logo" class="logo">
@@ -34,9 +35,9 @@
     </a>
 
     <script>
-        // Función para obtener datos de temperatura
+        // Función para obtener datos de uv
         function fetchData(serverIP) {
-            fetch(`http://${serverIP}:5050/ultimo-pulso`)
+            fetch(`http://${serverIP}:5050/ultima-uv`)
                 .then(response => response.json())
                 .then(data => {
                     document.querySelector('.labels').innerText = `Último dato: ${data.valor}`;
