@@ -13,11 +13,11 @@
 #include <DallasTemperature.h>
 
 // Configuración WiFi
-const char* ssid = "Totalplay-CEA1";
-const char* password = "CEA16BF74EjV44UN";
+const char* ssid = "rafaa";
+const char* password = "rafaaaaa";
 
 // Configuración MQTT
-const char* mqttServer = "192.168.100.226";
+const char* mqttServer = "192.168.137.238";
 const int mqttPort = 1883;
 
 WiFiClient espClient;
@@ -28,10 +28,11 @@ PubSubClient client(espClient);
 const int uvSensorPin = A0; // Pin analógico para el sensor UV
 int RXPin = 13;
 int TXPin = 15;
+const int motorpin=12;
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 32
 #define OLED_RESET    -1
-
+const int uv2=6;
 OneWire oneWire(ONE_WIRE_BUS);
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 SoftwareSerial neogps(RXPin, TXPin);
@@ -41,6 +42,7 @@ MAX30105 particleSensor;
 
 uint32_t irBuffer[100];
 uint32_t redBuffer[100];
+
 int32_t spo2 = 0; 
 int8_t validSPO2 = 0;
 int32_t heartRate = 0;
@@ -73,11 +75,15 @@ void reconnect() {
   }
 }
 
+
+
+
 void setup() {
   Serial.begin(115200);
   setup_wifi();
   sensors.begin();
   pinMode(uvSensorPin, INPUT);
+  pinMode(motorpin,OUTPUT);
   
   neogps.begin(9600);
 
@@ -142,12 +148,27 @@ void loop() {
         }
       }
     }
+    
+  
 
     // Mostrar datos en el monitor serial y en la pantalla OLED
     display.clearDisplay();
     display.setTextSize(1);
     display.setTextColor(SSD1306_WHITE);
     display.setCursor(0,0);
+
+    if(sensorValue>=9 ){
+      digitalWrite(motorpin,HIGH);
+      delay(1000);
+      digitalWrite(motorpin,LOW);
+      delay(5000);
+    }
+    if(sensors.getTempCByIndex(0)<34.5){
+      digitalWrite(motorpin,HIGH);
+      delay(1000);
+      digitalWrite(motorpin,LOW);
+      delay(5000);
+    }
 
     // Muestra la frecuencia cardíaca y la saturación de oxígeno si los datos son válidos
     if (validSPO2 && validHeartRate) {
@@ -176,16 +197,17 @@ void loop() {
     display.println(" C");
     
     display.print("IRV: ");
-    display.print(sensorValue);  
+    display.print(uv2);  
     display.println(" nm");
 
-    // Muestra la latitud y longitud si hay nuevos datos de GPS
     if (newData) {
-      Serial.print("Lat: ");
-      Serial.println(gps.location.lat(), 10);
-      Serial.print("Lng: ");
-      Serial.println(gps.location.lng(), 10);
+      Serial.print("Satelites conectados: "); //Para saber si se esta conectando a un satelite o a varios
+      Serial.println(gps.satellites.value());
+      print_speed();
     }
+  
+
+  
 
     display.display(); // Actualiza la pantalla OLED con los nuevos datos
 
@@ -196,10 +218,36 @@ void loop() {
     doc["lat"] = gps.location.lat();
     doc["lng"] = gps.location.lng();
     doc["temp"] = sensors.getTempCByIndex(0);
-    doc["uv"] = sensorValue;
+    doc["uv"] = uv2;
 
     char buffer[256];
     serializeJson(doc, buffer); // Serializa los datos en formato JSON
     client.publish("bigtopic", buffer); // Publica los datos en el topic MQTT
   }
+}
+
+void print_speed() {
+  Serial.println("Lat: ");
+  Serial.println(gps.location.lat(), 10);
+
+  Serial.println("Lng: ");
+  Serial.println(gps.location.lng(), 10);
+
+   if (gps.date.isValid()) {
+        Serial.print("Fecha: ");
+        Serial.print(gps.date.day());
+        Serial.print("/");
+        Serial.print(gps.date.month());
+        Serial.print("/");
+        Serial.println(gps.date.year());
+      }
+
+      if (gps.time.isValid()) {
+        Serial.print("Hora: ");
+        Serial.print(gps.time.hour());
+        Serial.print(":");
+        Serial.print(gps.time.minute());
+        Serial.print(":");
+        Serial.println(gps.time.second());
+      }
 }

@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>IRV Diaria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Signika:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>WiseWatch</title>
 </head>
+
 <body>
-    <h1>Histograma de Datos</h1>
-    <canvas id="uvChart" width="400" height="400"></canvas>
+    <a href="/">
+        <div class="inicial-bar">
+            <h1 class="title">IRV</h1>
+            <img src="/images/uv.png" alt="logo" class="logo">
+        </div>
+    </a>
+    <div class="frame">
+        <canvas id="uvChart" height="530px" width="600px"></canvas>
+    </div>
+
+    <a href="/uv.html">
+        <div class="atras-container graph">
+            <p class="textatras">Atras</p>
+            <img src="/images/back.png" alt="logo" class="logo">
+        </div>
+    </a>
     <script src="/scripts/uvscript.js"></script>
+    <link rel="stylesheet" href="/style.css">
 </body>
 </html>

@@ -19,15 +19,30 @@
         </div>
     </a>
     
-    <div class="container">
-        <div class="small">
-            <img src="/images/latidos.png" class="icon latidos">
-            <p class="labels">Último dato: </p>
-        </div>
+    <div>
+        <img src="/images/heartbeat-g.gif" class="gif latido">
+
+    </div>
+
+    <div class="container-muestra" >
+            <p class="muestra latidos">: </p>
     </div>
 
     <a href="/latidos.html">
-        <div class="atras-container">
+        <div class="atras-container s">
+            <p class="textatras">Atras</p>
+            <img src="/images/back.png" alt="logo" class="logo">
+        </div>
+    </a>
+    
+
+
+
+
+
+    <a href="/latidos.html">
+
+        <div class="atras">
             <p class="textatras">Atras</p>
             <img src="/images/back.png" alt="logo" class="logo">
         </div>
@@ -39,7 +54,7 @@
             fetch(`http://${serverIP}:5050/ultimo-pulso`)
                 .then(response => response.json())
                 .then(data => {
-                    document.querySelector('.labels').innerText = `Último dato: ${data.valor}`;
+                    document.querySelector('.muestra').innerText = `${data.valor} bpm`;
                 })
                 .catch(error => console.error('Error:', error));
         }

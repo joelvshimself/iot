@@ -1,28 +1,74 @@
 window.onload = function() {
+    const showValuesOnPointsPlugin = {
+        id: 'showValuesOnPoints',
+        afterDatasetsDraw: function(chart, easing) {
+            const ctx = chart.ctx;
+            chart.data.datasets.forEach((dataset, i) => {
+                const meta = chart.getDatasetMeta(i);
+                if (!meta.hidden) {
+                    meta.data.forEach((element, index) => {
+                        ctx.fillStyle = 'rgb(255, 255, 255)'; // Color del texto
+                        ctx.font = 'normal 12px Arial'; // Estilo del texto
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        const dataString = dataset.data[index].toString();
+                        ctx.fillText(dataString, element.x+10, element.y -5);
+                    });
+                }
+            });
+        }
+    };
+
     const uvCtx = document.getElementById('uvChart').getContext('2d');
     const uvChart = new Chart(uvCtx, {
-        // Configuración para el gráfico de temperatura
-        type: 'bar',
+        type: 'line',
         data: {
-            labels: ['0-4am', '5-9am', '10am-14pm', '15-19pm', '20-24pm'],
+            labels: ['4hrs', '9hrs', '14hrs', '19hrs', '24hrs'],
             datasets: [{
-                label: '# de uv',
+                label: 'IRV',
                 data: [],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
+                borderColor: 'rgb(253, 78, 78)',
+                backgroundColor: 'rgb(253, 78, 78)',
                 borderWidth: 1
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    display: false, // Oculta el eje Y    
+                },
+                x: {
+                    grid:{
+                        color: 'white', // Cambia el color de las líneas de la cuadrícula
+                    },
+                    ticks: {
+                        color: 'white', // Cambia el color del texto de los ticks
+                        font: {
+                            size: 14 // Cambia el tamaño de la fuente de los ticks
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'red', // Cambia el color del texto de la leyenda
+                        font: {
+                            size: 16 // Cambia el tamaño de la fuente de la leyenda
+                        }
+                    }
                 }
             }
-        }
+        },
+        plugins: [showValuesOnPointsPlugin, {
+            beforeDraw: function(uvChart) {
+                const ctx = uvChart.canvas.getContext('2d');
+                ctx.fillStyle = 'black'; // Color de fondo
+                ctx.fillRect(0, 0, uvChart.width, uvChart.height);
+            }
+        }]
     });
-
-    function updateTempChartData() {
+    function updateUvChartData() {
         fetch('/datos-histograma-uv')
             .then(response => response.json())
             .then(dataArray => {
@@ -34,6 +80,6 @@ window.onload = function() {
             .catch(error => console.error('Error al obtener los datos:', error));
     }
 
-    updateTempChartData();
-    // setInterval(updateTempChartData, 5000); // Descomenta para actualizar cada 5 segundos
+    updateUvChartData();
+    setInterval(updateUvChartData, 1000); 
 };

@@ -5,6 +5,11 @@ body {
     padding: 10px;
 }
 
+
+
+
+
+
 .logo{
     position: absolute;
     top: -13px;
@@ -12,6 +17,8 @@ body {
     width: 130px;
     position: cover;
     border-radius: 20px;}
+
+
 
 .title{
     font-family: 'Signika', sans-serif;
@@ -98,7 +105,7 @@ body {
     position: inline block;
     padding-top: 30px;
     padding-bottom: 0px;
-    border-bottom-color: #fd5050;
+    border-bottom-color: rgb(253, 78, 78);
     border-bottom-style: solid;
     border-bottom-width: 2px;
 }
@@ -108,8 +115,26 @@ body {
 
 }
 
+.frame{
+    display: block;
+    margin-top: 95px;
+}
 
+.entrada{
+    background-color: #808080; /* Color de fondo gris */
+    color: white; /* Color del texto blanco */
+    border: none; /* Elimina el borde */
+    border-radius: 5px;
+    padding: 10px 20px; /* Ajusta el relleno según tus necesidades */
+}
   
+
+
+.ingresar-container:hover {
+    background-color: #696969; /* Color de fondo más oscuro al pasar el ratón por encima */
+}
+
+
 .container {
     display: grid;
     grid-template-columns: 170px 170px;
@@ -117,6 +142,12 @@ body {
     margin-top: 95px;}
 .container.generic {
     margin-top: 10px;}
+
+.small.log{
+    margin-top: 30px;
+    height: 100px;
+    text-align: center;
+}
 .small {
     background-color: rgb(36, 36, 36);
     border-radius: 10px;
@@ -141,6 +172,25 @@ a{
 
 
 
+.ingresar-container{
+    background-color: rgb(63, 61, 93);
+    color: #ffffff;
+    font-family: 'Signika', sans-serif;
+    text-align: right;
+    height: 110px;
+    width: 333px;
+    border-top-left-radius: 40px; 
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px; 
+    border-bottom-right-radius: 40px;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 50px;
+    margin-left: 0px;
+    transition: background-color 0.3s; /* Transición suave al cambiar el color */
+
+}
+
 .atras-container{
     background-color: #1c1c1c;
     color: #ffffff;
@@ -157,7 +207,27 @@ a{
     border-bottom-left-radius: 40px; 
     border-bottom-right-radius: 40px;}
 
+.atras-container.graph{
+    bottom: 20px;}
+
+
+.atras-container.m{
+    position: fixed;
+    text-align: center;
+    height: 250px;
+    bottom: 130px;}
+
+.atras-container.m:hover{
+    position: fixed;
+    text-align: center;
+    height: 250px;
+    bottom: 130px;}
+
 .atras-container.s{
+    bottom: 0px;
+    height: 140px;}
+
+.atras-container.s:hover{
     bottom: 0px;
     height: 140px;}
 
@@ -177,6 +247,82 @@ a{
     border-top-right-radius: 40px;
     border-bottom-left-radius: 40px; 
     border-bottom-right-radius: 40px;}
+
+.map-container{
+    height: 100px;
+    width: 950px;
+    margin-bottom: -40px;
+}
+
+#mapid {
+    height: 1100px;
+}
+
+
+.gif{
+    height: 350px;
+    margin-top: 45px;
+    margin-bottom: 0px;
+    margin-left: 80px;
+    margin-right: 0px;
+    border-top-left-radius: 40px; 
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px; 
+    border-bottom-right-radius: 40px;}
+
+.gif.oximetria{
+    height: 260px;
+    margin-top: 60px;
+    margin-left: 40px;}
+
+.gif.temp{
+    height: 210px;
+    margin-top: 90px;
+    margin-left: 60px;}
+
+.gif.uv{
+    height: 210px;
+    margin-top: 90px;
+    margin-left: 75px;
+    object-fit: cover;
+    width: 210px;
+    border-radius: 100px;
+
+}
+
+
+
+.container-muestra{
+    width: 600px;
+}
+.muestra{display: block;
+    font-family: 'Signika', sans-serif;
+    font-size: 70px;
+    color: #ffffff;
+    margin-top: -90px;
+    margin-left: 107px;}
+.muestra.latidos{
+    margin-top: -90px;
+    color: rgb(214, 70, 70);
+    margin-left: 40px;}
+.muestra.oximetria{
+    margin-top: -25px;
+    margin-left: 100px;
+    color: rgb(70, 70, 174);}
+
+.muestra.temp{
+    margin-top: 0px;
+    margin-left: 100px;
+    color: rgb(225, 103, 58);}
+
+.muestra.uv{
+    margin-top: 0px;
+    margin-left: 100px;
+    color: rgb(162, 82, 162);}
+
+
+
+
 .labels{
     display: inline;
     font-family: 'Signika', sans-serif;
@@ -242,6 +388,14 @@ font-family: 'Signika', sans-serif;
 position: absolute;
 right: 140px;
 top: -20px;}
+
+.textatras.m{
+    right: 370px;
+    font-size: 75px;}
+
+.textatras.m:hover{
+    right: 370px;
+    font-size: 75px;}
     
 .icon{
     width: 200px;
@@ -313,7 +467,7 @@ top: -20px;}
 
 
 .custom-popup {
-    font-size: 36px;
+    font-size: 50px;
 }
 
 

@@ -19,16 +19,16 @@
         </div>
     </a>
     
-    <div class="container">
-        <div class="small">
-            <img src="/images/latidos.png" class="icon latidos">
-            <p class="labels">Último dato: </p>
-        </div>
+    <div>
+        <img src="/images/radiacion.gif" class="gif uv">
     </div>
-   
 
-    <a href="/temperatura.html">
-        <div class="atras-container">
+    <div class="container-muestra" >
+            <p class="muestra uv">: </p>
+    </div>
+
+    <a href="/uv.html">
+        <div class="atras-container s">
             <p class="textatras">Atras</p>
             <img src="/images/back.png" alt="logo" class="logo">
         </div>
@@ -40,7 +40,7 @@
             fetch(`http://${serverIP}:5050/ultima-uv`)
                 .then(response => response.json())
                 .then(data => {
-                    document.querySelector('.labels').innerText = `Último dato: ${data.valor}`;
+                    document.querySelector('.muestra').innerText = `${data.valor} IRV`;
                 })
                 .catch(error => console.error('Error:', error));
         }

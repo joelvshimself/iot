@@ -2,15 +2,22 @@
 <html>
 <head>
     <title>Mapa Simple</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <style>
-        #mapid { height: 1400px; }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-    <div id="mapid"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Contenedor Principal -->
+    <div class="map-container">
+        <div id="mapid"></div>
+    </div>
+
+    <a href="/">
+        <div class="atras-container m">
+            <p class="textatras m">Atras</p>
+        </div>
+    </a>
+
     <script src="scripts/scriptcmapa.js"></script>
-    <link rel="stylesheet" href="./style.css">
 </body>
 </html>

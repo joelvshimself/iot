@@ -19,16 +19,16 @@
         </div>
     </a>
     
-    <div class="container">
-        <div class="small">
-            <img src="/images/latidos.png" class="icon latidos">
-            <p class="labels">Último dato: </p>
-        </div>
+    <div>
+        <img src="/images/termometroo.gif" class="gif temp">
     </div>
-   
+
+    <div class="container-muestra" >
+            <p class="muestra temp">: </p>
+    </div>
 
     <a href="/temperatura.html">
-        <div class="atras-container">
+        <div class="atras-container s">
             <p class="textatras">Atras</p>
             <img src="/images/back.png" alt="logo" class="logo">
         </div>
@@ -36,14 +36,16 @@
 
     <script>
         // Función para obtener datos de temperatura
-        function fetchData(serverIP) {
-            fetch(`http://${serverIP}:5050/ultima-temp`)
-                .then(response => response.json())
-                .then(data => {
-                    document.querySelector('.labels').innerText = `Último dato: ${data.valor}`;
-                })
-                .catch(error => console.error('Error:', error));
+        function fetchData(serverIP) {fetch(`http://${serverIP}:5050/ultima-temp`)
+        .then(response => response.json())
+        .then(data => {
+            // Truncando a un decimal
+            let valor = data.valor.toString().substring(0, 4);
+            document.querySelector('.muestra').innerText = `${valor} °C`;
+        })
+        .catch(error => console.error('Error:', error));
         }
+
 
         // Solicitar la IP del servidor
         fetch('/get-ip')
